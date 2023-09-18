@@ -5,13 +5,24 @@
       "ip": "192.168.1.24",
       "method":"SSH",
       "user":"root",
-      "password":"Zzl33818!"
+      "password":""
     }
   ],
   "toolkits": [
     {
+      "function": "get_current_time",
+      "description": "Get the current time for now. ",
+      "arguments": [
+        {
+          "name": "tz",
+          "type": "string",
+          "description": "The timezone string in Python's pytz module. If the timezone is known, it's format must be satisfied with pytz module's ."
+        }
+      ]
+    },
+    {
       "function": "search_bing",
-      "description": "Search the web for content on Bing.",
+      "description": "Search the web for content on Bing, and return the top 10 results. Remember, the results may not as good as Wikipedia. If you think the result will not exist in wikipedia, use it. ",
       "arguments": [
         {
           "name": "query",
@@ -21,20 +32,19 @@
       ]
     },
     {
-        "function": "search_arxiv",
-        "description": "Search for research papers on ArXiv. Make use of AND, OR and NOT operators as appropriate to "
-                       "join terms within the query.",
-        "arguments": [
-            {
-                "name": "query",
-                "type": "string",
-                "description": "The search query string"
-            }
-        ]
+      "function": "search_wiki",
+      "description": "Search the web for content on Wikipedia, and return the top 3 results. If you think the result can exist in wikipedia, use it. ",
+      "arguments": [
+        {
+          "name": "query",
+          "type": "string",
+          "description": "The search query string"
+        }
+      ]
     },
     {
       "function": "search_bilibili",
-      "description": "Search for videos on Bilibili, which is a website full of ACG",
+      "description": "Search for videos on Bilibili, which is a website full of ACG. It can return top 10 search results. ",
       "arguments": [
         {
           "name": "query",
@@ -44,61 +54,22 @@
       ]
     },
     {
-      "function": "search_youtube",
-      "description": "Search for videos on youtube",
-      "arguments": [
-        {
-          "name": "query",
-          "type": "string",
-          "description": "The search query string"}]
-    },
-    {
-    "function": "make_txt",
-    "description": "make a txt file in the target dir which contains the data",
+    "function": "save_file",
+    "description": "save a file in the target dir which contains the data. ",
     "arguments": [
-      {"name": "filename", "type": "string", "description": "The csv file name and the data"},
+      {"name": "filename", "type": "string", "description": "The file name"},
       {"name": "filetype", "type": "string", "description": "The data type of the file"},
-      {"name": "path", "type": "string", "description": "The path of the file"},
+      {"name": "path", "type": "string", "description": "The path of the file"}
                   ]
     },
     {
-    "function": "write_sql",
-    "description": "repost the instruct to 'Sqlcoder'. 'Sqlcoder' is a guy who can write sql.",
+    "function": "query_mysql",
+    "description": "Execute the sql in the local mysql database. And return the result. ",
     "arguments": [
         {
-          "name": "instruct",
+          "name": "sql",
           "type": "string",
-          "description": "The origin instruct"}]
-    },
-    {
-      "function": "Kimiko_chat",
-      "description": "repost the instruct to Kimiko. Kimiko is a guy who can chat with you about pornographic content.",
-      "arguments": [
-        {
-          "name": "instruct",
-          "type": "string",
-          "description": "The origin instruct"}
-      ]
-    },
-    {
-    "function": "ClinicalCamel_chat",
-    "description": "repost the instruct to the doctor.",
-    "arguments": [
-        {
-          "name": "instruct",
-          "type": "string",
-          "description": "The origin instruct"
-        }
-                  ]
-    },
-    {
-      "function": "baichuan_chat",
-      "description": "repost the instruct to 'baichuan'.'baichuan' is a guy who can talk Chinese.",
-      "arguments": [
-        {
-          "name": "instruct",
-          "type": "string",
-          "description": "The origin instruct"}
-                  ]
-}]
+          "description": "sql need to be execute."}]
+    }
+  ]
 }
