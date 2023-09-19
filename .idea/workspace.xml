@@ -1,17 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="54dece67-545c-40d8-842d-d9b550c47b2b" name="Changes" comment="add some sectors">
-      <change afterPath="$PROJECT_DIR$/planner.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/real_world/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/real_world/config_all.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/send_req.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/solver.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/special_mind/fllama_api.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/worker.py" afterDir="false" />
+    <list default="true" id="54dece67-545c-40d8-842d-d9b550c47b2b" name="Changes" comment="add some factors">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/real_world/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/real_world/config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/real_world/toolkit.py" beforeDir="false" afterPath="$PROJECT_DIR$/real_world/toolkit.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +43,7 @@
       <recent name="O:\smart_agent" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.planner">
+  <component name="RunManager" selected="Python.solver">
     <configuration name="planner" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="smart_agent" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -160,8 +151,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.planner" />
         <item itemvalue="Python.solver" />
+        <item itemvalue="Python.planner" />
         <item itemvalue="Python.worker" />
         <item itemvalue="Python.send_req (1)" />
         <item itemvalue="Python.toolkit" />
@@ -184,7 +175,14 @@
       <option name="project" value="LOCAL" />
       <updated>1693994739783</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="add some factors">
+      <created>1695041313875</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1695041313875</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -200,6 +198,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add some sectors" />
-    <option name="LAST_COMMIT_MESSAGE" value="add some sectors" />
+    <MESSAGE value="add some factors" />
+    <option name="LAST_COMMIT_MESSAGE" value="add some factors" />
   </component>
 </project>
