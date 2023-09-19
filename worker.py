@@ -19,6 +19,8 @@ def work4plan(plan):
             return toolkit.scheduler(func)
         except:
             return json.loads(response.text)['result'].split('[/INST]')[-1].strip()
+        # func = json.loads(json.loads(response.text)['result'].split('[/INST]')[-1].strip())
+        # return toolkit.scheduler(func)
 
 
     else:

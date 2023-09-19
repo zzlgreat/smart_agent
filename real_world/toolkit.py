@@ -12,9 +12,7 @@ toolkits = json.load(open('real_world/config.json','r')).get('toolkits')
 
 
 async def search_by_order(keyword):
-    return await search.search_by_type(keyword, search_type=search.SearchObjectType.VIDEO,
-                                       order_type=search.OrderVideo.SCORES, time_range=10,
-                                       video_zone_type=video_zone.VideoZoneTypes.DOUGA_MMD, page=1, debug_param_func=print)
+    return await search.search(keyword)
 
 # Get the timezone's time
 def get_current_time(tz=None):
@@ -28,8 +26,10 @@ def get_current_time(tz=None):
 
 def search_bing(keyword):
     r = requests.get('http://192.168.1.24:8000/search?q='+keyword+'&max_results=10').content.decode('unicode-escape')
+    #print(r)
+    r = r.replace('It\'s a "Barbie" world.', 'It\'s a \\"Barbie\\" world.')
     resultstr = ''
-    results = json.loads(r)
+    results = json.loads(r).get('results')
     for num,res in enumerate(results):
         resultstr+= 'result' +str(num) +' : Title: '+ res.get('title')+'\n'+"Content: "+res.get('body')+'\n'
     return resultstr
@@ -38,11 +38,15 @@ def search_bing(keyword):
 
 def search_bilibili(keyword):
     res = sync(search_by_order(keyword))
+    #print(res.keys())
     arcurls = []
     for result in res.get('result'):
-        arcurls.append(result.get('arcurl'))
+        #print(result)
+        if result.get('result_type') == 'video':
+            for data in result.get('data'):
+                arcurls.append(data.get('arcurl'))
     print('searching from bilibili........')
-    return ';'.join(arcurls)
+    return '\n'.join(arcurls)
 
 #search from wikipedia and return a summary
 
@@ -82,4 +86,4 @@ def scheduler(func_dic):
     return 'Sorry, I have no functions now'
 
 if __name__ == '__main__':
-    print(search_bing('Semistone'))
+    print(search_bilibili('The Departed'))

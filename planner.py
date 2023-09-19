@@ -15,15 +15,17 @@ def get_plan(user_prompt):
     print(prompt)
     result = send2llm(prompt, URI)
     print(result)
-    matches_all_cases = re.findall(r'(Step \d+:|Plan \d+:)(.*?)(Step \d+:|Plan \d+:|#E\d+)', result, re.DOTALL)
+    matches_with_hashes = re.findall(r'(Step \d+:|Plan \d+:)(.*?)(?=Step \d+:|Plan \d+:|$)', result,
+                                     re.DOTALL)
 
     # Extracting only the desired text between the start and end markers
-    cleaned_matches_all_cases = [match[1].strip() for match in matches_all_cases]
-    print(len(cleaned_matches_all_cases))
-    return cleaned_matches_all_cases
+    cleaned_matches_with_hashes = [match[1].strip() for match in matches_with_hashes]
+    print(len(cleaned_matches_with_hashes))
+    print(cleaned_matches_with_hashes)
+    return cleaned_matches_with_hashes
 
 if __name__ == '__main__':
-    user_prompt = "what movies did the the director of 'Oppenheim' direct? List top 10 best."
+    user_prompt = "what movies did the the director of 'Barbie' direct? List one of them and search it in bilibili.\n"
     plans = get_plan(user_prompt)
     print(plans)
 

@@ -3,6 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="54dece67-545c-40d8-842d-d9b550c47b2b" name="Changes" comment="add some factors">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/planner.py" beforeDir="false" afterPath="$PROJECT_DIR$/planner.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/real_world/toolkit.py" beforeDir="false" afterPath="$PROJECT_DIR$/real_world/toolkit.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/send_req.py" beforeDir="false" afterPath="$PROJECT_DIR$/send_req.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/solver.py" beforeDir="false" afterPath="$PROJECT_DIR$/solver.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/worker.py" beforeDir="false" afterPath="$PROJECT_DIR$/worker.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,10 +157,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.solver" />
+        <item itemvalue="Python.toolkit" />
         <item itemvalue="Python.planner" />
         <item itemvalue="Python.worker" />
         <item itemvalue="Python.send_req (1)" />
-        <item itemvalue="Python.toolkit" />
       </list>
     </recent_temporary>
   </component>
@@ -182,7 +187,14 @@
       <option name="project" value="LOCAL" />
       <updated>1695041313875</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="add some factors">
+      <created>1695091305949</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1695091305949</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
