@@ -1,6 +1,23 @@
-<<<<<<< Updated upstream
-"smart_agent" 
-This project aims to realize the practical application of multi-agent. The concepts of real world, virtual world, general thinking and specific thinking are introduced. Still in prototype stage
-=======
-THIS sector aims to bulid a virtual docker env, in which can test the result's appearance. 
->>>>>>> Stashed changes
+# Smart Agent
+
+Smart Agent是一个开源项目，提供了一套完整的库，用于执行用户提供的指令。
+
+## 特点
+
+- **工具箱**: 该项目包含一个名为`real_world`的模块，其中定义了`toolkit`，内置各种实用工具。
+- **特殊模型**: 一个名为`special mind`的模块，用于加载经过微调的模型。
+- **记忆**: 提供`memory`和`flash mind`两个模块，分别用于长期和短期记忆。
+
+## 架构
+
+项目的核心逻辑基于以下四个部分：
+
+1. **Planner**: 根据用户输入的指令拆分任务。
+2. **Distributor**: 负责从`toolkit`中选择适当的工具来执行计划。
+3. **Worker**: 负责调用工具箱中的任务，并返回任务调用的结果。
+4. **Solver**: 整合所有的计划和结果，并返回一个结论。
+
+## 使用方法
+
+运行`smart_agent.py`并输入您的指令。
+

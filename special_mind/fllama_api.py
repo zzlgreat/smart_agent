@@ -1,3 +1,5 @@
+# This code can start an interface loaded with a function call model and requires support in real_world/config.json.
+# The parameter passed is a piece of natural language, and the output is the function that needs to be called according to the model in config.
 from flask import Flask, request, jsonify
 import os
 import json

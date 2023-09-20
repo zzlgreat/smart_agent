@@ -67,6 +67,22 @@ def make_file(filename,filetype,path):
         return "The file cannot made cause:" +str(e)
 
 
+def call_get_voice_api(text, voicename):
+    base_url = "http://222.128.48.7:19819/get_voice/"
+    params = {
+        "text": text,
+        "voicename": voicename
+    }
+
+    response = requests.get(base_url, params=params)
+
+    if response.status_code == 200:
+        with open("response_wav.wav", "wb") as file:
+            file.write(response.content)
+        return "response_wav.wav"
+    else:
+        response.raise_for_status()
+
 def scheduler(func_dic):
     function_name = func_dic.get('function')
     arguments = func_dic.get('arguments')
