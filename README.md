@@ -1,5 +1,26 @@
 # Smart Agent
 
+Smart Agent is an open-source project offering a comprehensive library for executing user-provided instructions.
+
+## Features
+
+- **Toolkit**: The project contains a module named `real_world` defining a `toolkit` that incorporates a variety of handy tools.
+- **Special Models**: A module named `special mind` for loading fine-tuned models.
+- **Memory**: Modules `memory` and `flash mind` are provided for long-term and short-term memory, respectively.
+
+## Architecture
+
+The core logic of the project is based on the following four components:
+
+1. **Planner**: Breaks down tasks based on user input.
+2. **Distributor**: Responsible for selecting appropriate tools from the `toolkit` to execute the plans.
+3. **Worker**: Takes charge of invoking tasks from the toolkit and returning the results.
+4. **Solver**: Consolidates all plans and results, rendering a conclusion.
+
+## Usage
+
+Run `smart_agent.py` and input your instruction.
+
 Smart Agent是一个开源项目，提供了一套完整的库，用于执行用户提供的指令。
 
 ## 特点
