@@ -1,0 +1,16 @@
+{
+  "sql_coder":{
+      "modelpath": "/DATA4T/text-generation-webui/models/sqlcoder",
+      "description": "Writer of sql",
+      "port": 13306
+    },
+  "flama_api":{
+      "path": "/DATA4T/text-generation-webui/models/sqlcoder",
+      "description": "Function caller",
+      "port": 7784
+    },
+  "voice_api":{
+      "description": "Text to voice",
+      "port": 7784
+    }
+}

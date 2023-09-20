@@ -58,11 +58,29 @@ def run_inference(question, prompt_file="prompt.md", metadata_file="metadata.sql
     return generated_query
 
 
-if __name__ == "__main__":
-    # Parse arguments
-    parser = argparse.ArgumentParser(description="Run inference on a question")
-    parser.add_argument("-q", "--question", type=str, help="Question to run inference on")
-    args = parser.parse_args()
-    question = args.question
-    print("Loading a model and generating a SQL query for answering your question...")
-    print(run_inference(question))
+from flask import Flask, request, jsonify
+import torch
+from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
+
+app = Flask(__name__)
+
+
+# 其他函数（如generate_prompt和get_tokenizer_model）在此处保持不变
+
+@app.route('/generate_sql', methods=['POST'])
+def generate_sql():
+    data = request.json
+    question = data.get('question')
+
+    if not question:
+        return jsonify({"error": "Question is missing!"}), 400
+
+    try:
+        generated_query = run_inference(question)
+        return jsonify({"query": generated_query})
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=6698, debug=True)
