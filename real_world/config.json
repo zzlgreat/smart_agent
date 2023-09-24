@@ -22,7 +22,7 @@
     },
     {
       "function": "search_bing",
-      "description": "Search the web for content on Bing, and return the top 10 results.",
+      "description": "Search the web for content on Bing, and return the top 5 results.",
       "arguments": [
         {
           "name": "query",

@@ -22,12 +22,11 @@ def get_current_time(tz=None):
         now_time = datetime.now(timezone(tz))
         return now_time.strftime('%Y-%m-%d %H:%M:%S')
 
-# search from bing and return the top 10 results
+# search from bing and return the top 5 results
 
 def search_bing(keyword):
-    r = requests.get('http://192.168.1.24:8000/search?q='+keyword+'&max_results=10').content.decode('unicode-escape')
-    #print(r)
-    r = r.replace('It\'s a "Barbie" world.', 'It\'s a \\"Barbie\\" world.')
+    r = requests.get('http://192.168.1.24:8000/search?q='+keyword+'&max_results=5').content.decode('unicode-escape')
+    print(r)
     resultstr = ''
     results = json.loads(r).get('results')
     for num,res in enumerate(results):
@@ -89,7 +88,7 @@ def scheduler(func_dic):
     arguments = func_dic.get('arguments')
     print(function_name,arguments)
     if function_name == 'get_current_time':
-        return get_current_time(arguments['query'])
+        return get_current_time(arguments['tz'])
     elif function_name == 'search_bing':
         return search_bing(arguments['query'])
     elif function_name == 'search_bilibili':
@@ -103,4 +102,4 @@ def scheduler(func_dic):
     return 'Sorry, I have no functions now'
 
 if __name__ == '__main__':
-    print(search_wiki('cat king'))
+    print(search_bing('most popular TV shows right now'))
