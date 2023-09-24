@@ -22,7 +22,7 @@
     },
     {
       "function": "search_bing",
-      "description": "Search the web for content on Bing, and return the top 10 results. Remember, the results may not as good as Wikipedia. If you think the result will not exist in wikipedia, use it. ",
+      "description": "Search the web for content on Bing, and return the top 10 results.",
       "arguments": [
         {
           "name": "query",
@@ -33,12 +33,12 @@
     },
     {
       "function": "search_wiki",
-      "description": "Search the web for content on Wikipedia, and return the top 3 results. If you think the result can exist in wikipedia, use it. ",
+      "description": "Search the web for content on Wikipedia, and return the top 3 results. Performance well when the query is a keyword.",
       "arguments": [
         {
           "name": "query",
           "type": "string",
-          "description": "The search query string"
+          "description": "The search query string,must be a keyword,not a sentence"
         }
       ]
     },
