@@ -1,43 +1,19 @@
-# Smart Agent
-
-Smart Agent is an open-source project offering a comprehensive library for deconstructing complex tasks and dispatching functions within a toolkit. The project adopts a universal Agent design philosophy, summarizing the process of handling complex tasks into four key stages: Task Planning (Planner) → Function Dispatching (Distributor) → Function Execution (Worker) → Result Synthesis (Solver).
-
-## Key Features
-
-- **Toolkit**: The project includes a module called `real_world`, which houses a `toolkit` containing a variety of fully customizable tools.
-
-- **Ease of Model Use**: The project adheres to a design philosophy that separates the Agent from the operator. It deploys models as RESTful APIs, calling the LLM API interface only when necessary.
-
-- **Memory Capabilities**: The project offers two modules, `memory` and `flash mind`, for long-term and short-term memory, respectively. (In Development)
-
-## Architecture
-
-The core logic of the project is built upon the following four components:
-
-1. **Task Planning (Planner)**: Decomposes tasks based on user input.
-  
-2. **Function Dispatching (Distributor)**: Selects appropriate tools from the `toolkit` to execute the planned tasks.
-  
-3. **Function Execution (Worker)**: Executes the tasks defined in the `toolkit` and returns the results.
-  
-4. **Result Synthesis (Solver)**: Integrates all task plans and results to output a final conclusion.
-
-## Usage Guide
-
-1. **Customize Toolkit**: In the `real_world/toolkit.py` file, you can add your own callable functions following the example format provided.
-
-2. **Model Training**: Train models for task decomposition and function dispatching using the REWOO and Trelis datasets via LORA and QLORA, respectively.
-  - **Planner/Solver**: [Marcoroni-70B-v1](https://huggingface.co/AIDC-ai-business/Marcoroni-70B-v1) can be used as a base model for task planning. This model is well-suited for task decomposition as it has been trained on a large amount of COT data.
-  - **Distributor**: Refer to `func_caller_trainer.py` for training the function dispatching model.
-  
-3. **Model Deployment**: Deploy the required models and interfaces. The current design logic is to have a shared model for Planner and Solver, and a separate model for the Distributor.
-  - **Planner/Solver**: The simplest way to deploy is to install [text-generation-webui](https://github.com/oobabooga/text-generation-webui) and load [Marcoroni-70B-v1](https://huggingface.co/Panchovix/Marcoroni-70B-v1-4.65bpw-h6-exl2) using EXLLAMAv2.
-  - **Distributor**: Run `python special_mind/fllama_api.py`, making sure to configure `api_config.json` beforehand.
-
-4. **Run the Agent**: Configure the two model interfaces in `model_api_config.py`.
-  - Execute `smart_agent.py` and input your command.
+# Smart Agent 项目介绍
 
 
+## 内容目录
+
+- [中文版](#中文版)
+  - [主要特点](#主要特点)
+  - [架构设计](#架构设计)
+  - [使用指南](#使用指南)
+- [English Version](#english-version)
+  - [Key Features](#key-features)
+  - [Architecture](#architecture)
+  - [Usage Guide](#usage-guide)
+
+
+# 中文版
 Smart Agent 是一个开放源代码的项目，为您提供一整套完善的库，用以解构复杂任务并调度 toolkit 中的函数。该项目采用一种通用的 Agent 设计思路，将复杂任务处理的流程概括为：任务规划（Planner）→ 函数调度（Distributor）→ 函数执行（Worker）→ 结果整合（Solver）。
 ## 特点
 
@@ -67,3 +43,42 @@ Smart Agent 是一个开放源代码的项目，为您提供一整套完善的�
 4. **run**: 在model_api_config.py中配置加载的两个模型的接口。
 - 运行`smart_agent.py`并输入您的指令。
 
+
+# english-version
+
+Smart Agent is an open-source project offering a comprehensive library for deconstructing complex tasks and dispatching functions within a toolkit. The project adopts a universal Agent design philosophy, summarizing the process of handling complex tasks into four key stages: Task Planning (Planner) → Function Dispatching (Distributor) → Function Execution (Worker) → Result Synthesis (Solver).
+
+## Key Features
+
+- **Toolkit**: The project includes a module called `real_world`, which houses a `toolkit` containing a variety of fully customizable tools.
+
+- **Ease of Model Use**: The project adheres to a design philosophy that separates the Agent from the operator. It deploys models as RESTful APIs, calling the LLM API interface only when necessary.
+
+- **Memory Capabilities**: The project offers two modules, `memory` and `flash mind`, for long-term and short-term memory, respectively. (In Development)
+
+## Architecture
+
+The core logic of the project is built upon the following four components:
+
+1. **Task Planning (Planner)**: Decomposes tasks based on user input.
+  
+2. **Function Dispatching (Distributor)**: Selects appropriate tools from the `toolkit` to execute the planned tasks.
+  
+3. **Function Execution (Worker)**: Executes the tasks defined in the `toolkit` and returns the results.
+  
+4. **Result Synthesis (Solver)**: Integrates all task plans and results to output a final conclusion.
+
+## Usage Guide
+
+1. **Customize Toolkit**: In the `real_world/toolkit.py` file, you can add your own callable functions following the example format provided.
+-  search_bing tool must be deployed [sitedorks](https://github.com/Zarcolio/sitedorks)first，search_bilibili can be use by `pip install bilibili-api-python`
+2. **Model Training**: Train models for task decomposition and function dispatching using the REWOO and Trelis datasets via LORA and QLORA, respectively.
+  - **Planner/Solver**: [Marcoroni-70B-v1](https://huggingface.co/AIDC-ai-business/Marcoroni-70B-v1) can be used as a base model for task planning. This model is well-suited for task decomposition as it has been trained on a large amount of COT data.
+  - **Distributor**: Refer to `func_caller_trainer.py` for training the function dispatching model.
+  
+3. **Model Deployment**: Deploy the required models and interfaces. The current design logic is to have a shared model for Planner and Solver, and a separate model for the Distributor.
+  - **Planner/Solver**: The simplest way to deploy is to install [text-generation-webui](https://github.com/oobabooga/text-generation-webui) and load [Marcoroni-70B-v1](https://huggingface.co/Panchovix/Marcoroni-70B-v1-4.65bpw-h6-exl2) using EXLLAMAv2.
+  - **Distributor**: Run `python special_mind/fllama_api.py`, making sure to configure `api_config.json` beforehand.
+
+4. **Run the Agent**: Configure the two model interfaces in `model_api_config.py`.
+  - Execute `smart_agent.py` and input your command.
