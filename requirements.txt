@@ -1,0 +1,7 @@
+transformers~=4.33.1
+requests~=2.31.0
+pytz~=2022.7
+elevenlabs~=0.2.26
+flask~=2.2.2
+tqdm~=4.66.1
+bilibili-api-python

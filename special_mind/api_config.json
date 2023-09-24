@@ -1,11 +1,12 @@
 {
   "sql_coder":{
-      "modelpath": "/DATA4T/text-generation-webui/models/sqlcoder",
+      "model_path": "/DATA4T/text-generation-webui/models/sqlcoder",
       "description": "Writer of sql",
       "port": 13306
     },
   "flama_api":{
-      "path": "/DATA4T/text-generation-webui/models/sqlcoder",
+      "model_path": "/DATA4T/text-generation-webui/models/CodeLlama-34b-Instruct-hf",
+      "lora_path": "/DATA4T/text-generation-webui/loras/CodeLlama-34b-Instruct-hf-function-calling-adapters-v2",
       "description": "Function caller",
       "port": 7784
     },

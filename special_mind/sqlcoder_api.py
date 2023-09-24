@@ -1,7 +1,8 @@
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
 import argparse
-
+import json
+config = json.load(open('api_config.json','r'))
 
 def generate_prompt(question, prompt_file="prompt.md", metadata_file="metadata.sql"):
     with open(prompt_file, "r") as f:
@@ -29,7 +30,7 @@ def get_tokenizer_model(model_name):
 
 
 def run_inference(question, prompt_file="prompt.md", metadata_file="metadata.sql"):
-    tokenizer, model = get_tokenizer_model("defog/sqlcoder")
+    tokenizer, model = get_tokenizer_model(config.get('sql_coder').get('model_path'))
     prompt = generate_prompt(question, prompt_file, metadata_file)
 
     # make sure the model stops generating at triple ticks
@@ -83,4 +84,4 @@ def generate_sql():
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=6698, debug=True)
+    app.run(host='0.0.0.0', port=config.get('sql_coder').get('port'), debug=True)

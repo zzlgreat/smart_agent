@@ -1,5 +1,14 @@
 # This code can start an interface loaded with a function call model and requires support in real_world/config.json.
 # The parameter passed is a piece of natural language, and the output is the function that needs to be called according to the model in config.
+import os
+import sys
+
+current_folder = os.path.dirname(os.path.abspath(__file__))
+project_folder = os.path.dirname(current_folder)
+sys.path.append(project_folder)
+
+# Your code here
+
 from flask import Flask, request, jsonify
 import os
 import json
@@ -12,13 +21,15 @@ from peft import PeftModel
 from real_world import toolkit
 runtime = "gpu"
 runtimeFlag = "auto" if runtime == "gpu" else "cpu"
-
+config = json.load(open('special_mind/api_config.json','r'))
 # Choose the model ID
-model_id = "/DATA4T/text-generation-webui/models/CodeLlama-34b-Instruct-hf"
+model_id = config.get('flama_api').get('model_path')
 # Google Drive path for cache (optional)
-drive_path = "/DATA4T/text-generation-webui/models/CodeLlama-34b-Instruct-hf"
+drive_path = config.get('flama_api').get('model_path')
 cache_dir = drive_path if os.path.exists(drive_path) else None
-adapter_model = "/DATA4T/text-generation-webui/loras/CodeLlama-34b-Instruct-hf-function-calling-adapters-v2"
+adapter_model = config.get('flama_api').get('lora_path')
+print(drive_path)
+print(adapter_model)
 # Function metadata
 
 toolkits = toolkit.toolkits
@@ -94,4 +105,4 @@ def api_stream_without_function():
         return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=7784)
+    app.run(host='0.0.0.0', port= config.get('flama_api').get('port'))

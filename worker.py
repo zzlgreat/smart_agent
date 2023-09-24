@@ -1,10 +1,11 @@
-#fuction calling api
+#test worker
 import requests
 import json
 from real_world import toolkit
+from model_api_config import planner_model,distributor_model
 def work4plan(plan):
     data = {'user_prompt': plan}
-    response = requests.post('http://192.168.1.24:7784/stream_with_function', json=data)
+    response = requests.post(distributor_model.URI, json=data)
     if response.status_code == 200:
         # print('My command:')
         # print(data.get('user_prompt'))
