@@ -2,20 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="54dece67-545c-40d8-842d-d9b550c47b2b" name="Changes" comment="add some factors">
-      <change afterPath="$PROJECT_DIR$/model_api_config.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smart_agent.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/special_mind/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/smart_agent.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/smart_agent.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/distributor.py" beforeDir="false" afterPath="$PROJECT_DIR$/distributor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/real_world/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/real_world/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/solver.py" beforeDir="false" afterPath="$PROJECT_DIR$/solver.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/special_mind/api_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/special_mind/api_config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/special_mind/fllama_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/special_mind/fllama_api.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/special_mind/sqlcoder_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/special_mind/sqlcoder_api.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/worker.py" beforeDir="false" afterPath="$PROJECT_DIR$/worker.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +18,7 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -251,7 +240,28 @@
       <option name="project" value="LOCAL" />
       <updated>1695514474135</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="add some factors">
+      <created>1695522579098</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1695522579098</updated>
+    </task>
+    <task id="LOCAL-00012" summary="add some factors">
+      <created>1695522803365</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1695522803365</updated>
+    </task>
+    <task id="LOCAL-00013" summary="add some factors">
+      <created>1695522836393</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1695522836394</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

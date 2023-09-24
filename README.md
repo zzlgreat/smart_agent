@@ -31,16 +31,20 @@ Smart Agent 是一个开放源代码的项目，为您提供一整套完善的�
 4. **Solver**: 整合所有的计划和结果，并返回一个结论。
 
 ## 使用方法
-1. **Toolkit**: 在real_world/toolkit.py中，按照示例格式编写自己的调用函数。
-- 示例中的search_bing模块依赖[sitedorks](https://github.com/Zarcolio/sitedorks)，search_bilibili依赖bilibili-api-python模块
-2. **Train**: 根据rewoo格式的数据集和trelis数据集分别用lora和qlora分别训练拆解任务的模型和调度函数的模型.
+1. **自定义工具箱**: 在real_world/toolkit.py中，按照示例格式编写自己的调用函数。
+- 示例中的search_bing模块依赖[sitedorks](https://github.com/Zarcolio/sitedorks)，运行前可以先在其中的sitedorks/duckduckgo-api路径下运行`gunicorn -b 0.0.0.0:8000 app:app`进行部署。
+- search_bilibili依赖bilibili-api-python模块
+
+2. **训练（可选）**: 根据rewoo格式的数据集和trelis数据集分别用lora和qlora分别训练拆解任务的模型和调度函数的模型.
 - **planner/solver**: 可以使[用Marcoroni-70B-v1](https://huggingface.co/AIDC-ai-business/Marcoroni-70B-v1)作为基座。该模型训练时采用了大量COT数据，很适合做任务分解。如果没有现成的rewoo格式的数据集，该模型本身的zero-shot能力就很好，
-- **distributor**: 训练调度函数的模型见func_caller_trainer.py
-3. **deploy**: 部署需要使用的模型和接口。目前设计的逻辑是Planner和Solver共用一个模型,distributor自用一个模型。
+- **distributor**: 训练调度函数的模型见func_caller_trainer.py。不想训练可以在[这里](https://huggingface.co/Trelis/Llama-2-7b-chat-hf-function-calling-adapters-v2)下载7B版。
+
+3. **部署成接口**: 部署需要使用的模型和接口。目前设计的逻辑是Planner和Solver共用一个模型,distributor自用一个模型。
 - **planner/solver**: 最简单的方式是安装[text-generation-webui](https://github.com/oobabooga/text-generation-webui)，用exllamav2加载[Marcoroni-70B-v1](https://huggingface.co/Panchovix/Marcoroni-70B-v1-4.65bpw-h6-exl2)。
-安装后运行`python server.py --loader exllamav2 --model Marcoroni-70B-v1-4.65bpw-h6-exl2 --gpu-split 21,22,23 --listen --extensions api`
+安装后将模型文件夹安置后运行`python server.py --loader exllamav2 --model Marcoroni-70B-v1-4.65bpw-h6-exl2 --gpu-split 21,22,23 --listen --extensions api`
 - **distributor**: `python specical_mind/fllama_api.py` 运行前配置好api_config.json
-4. **run**: 在model_api_config.py中配置加载的两个模型的接口。
+
+4. **运行**: 在model_api_config.py中配置刚才加载的两个模型的接口ip和port。
 - 运行`smart_agent.py`并输入您的指令。
 
 
