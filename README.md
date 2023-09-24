@@ -39,6 +39,8 @@ Smart Agent是一个开源项目，提供了一套完整的库，用于执行用
 4. **Solver**: 整合所有的计划和结果，并返回一个结论。
 
 ## 使用方法
-
+1. **Toolkit**: 按照real_world/toolkit.py中的格式编写自己的调用函数。
+2. **Train**: 根据rewoo格式的数据集和trelis数据集分别用lora和qlora分别训练拆解任务的模型和调度函数的模型.调度函数的模型见func_caller_trainer.py
+3. ****
 运行`smart_agent.py`并输入您的指令。
 

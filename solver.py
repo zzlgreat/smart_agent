@@ -27,6 +27,5 @@ def solve_plan_work(prompt):
     response = send2llm(SYS_PROMPT,URI)
     print(response)
 if __name__ == '__main__':
-    user_prompt = "what movies did the director of the movie 'Killers of the Flower Moon' direct?" \
-                  " List one of them and search it in bilibili.\n"
+    user_prompt = "Recommend me a guangzhou's hotel, I want the best in this year. Not the most expensive but the best.\n"
     solve_plan_work(user_prompt)

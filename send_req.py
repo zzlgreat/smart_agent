@@ -19,7 +19,7 @@ def send2llm(prompt,URI):
         # in presets/preset-name.yaml are used instead of the individual numbers.
         'preset': 'None',
         'do_sample': True,
-        'temperature': 0.5,
+        'temperature': 0.7,
         'top_p': 0.1,
         'typical_p': 1,
         'epsilon_cutoff': 0,  # In units of 1e-4
@@ -43,7 +43,7 @@ def send2llm(prompt,URI):
 
         'seed': -1,
         'add_bos_token': True,
-        'truncation_length': 16000,
+        'truncation_length': 2048,
         'ban_eos_token': False,
         'custom_token_bans': '',
         'skip_special_tokens': True,
@@ -63,4 +63,5 @@ def send2llm(prompt,URI):
 if __name__ == '__main__':
     #prompt = "In order to make homemade bread, follow these steps:\n1)"
     prompt = '''For the following tasks, make plans that can solve the problem step-by-step. For each plan, indicate which external tool together with tool input to retrieve evidence. You can store the evidence into a variable #E that can be called by later tools. (Plan, #E1, Plan, #E2, Plan, ...) Tools can be one of the following: Wikipedia[input]: Worker that search for similar page contents from Wikipedia. Useful when you need to get holistic knowledge about people, places, companies, historical events, or other subjects. The response are long and might contain some irrelevant information. Input should be a search query. LLM[input]: A pretrained LLM like yourself. Useful when you need to act with general world knowledge and common sense. Prioritize it when you are confident in solving the problem yourself. Input can be any instruction.\n\nBetween Sempervivum and Malope, which genus has more species? '''
-    send2llm(prompt,URI)
+    print(prompt)
+    print(send2llm(prompt,URI))

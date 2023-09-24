@@ -64,11 +64,11 @@ def make_file(filename,filetype,path):
             j.write(filename)
         return "The file has made"
     except Exception as e:
-        return "The file cannot made cause:" +str(e)
+        return "The file cannot be made cause:" +str(e)
 
 
 def call_get_voice_api(text, voicename):
-    base_url = "http://222.128.48.7:19819/get_voice/"
+    base_url = ""
     params = {
         "text": text,
         "voicename": voicename
@@ -82,6 +82,7 @@ def call_get_voice_api(text, voicename):
         return "response_wav.wav"
     else:
         response.raise_for_status()
+        return None
 
 def scheduler(func_dic):
     function_name = func_dic.get('function')
@@ -102,4 +103,4 @@ def scheduler(func_dic):
     return 'Sorry, I have no functions now'
 
 if __name__ == '__main__':
-    print(search_bilibili('The Departed'))
+    print(search_wiki('cat king'))
